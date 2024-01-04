@@ -48,3 +48,65 @@ function changeImage() {
     }
     console.log(clonedImages)
 }
+
+
+function checkNames(number) {
+    // console.log("from check()");
+    // console.log(number);
+    // console.log(sortedImage);
+    // if ((sortedImage == "images\fig_01a.png" || sortedImage == "images\fig_01b.png") && number == 11) {
+    //     console.log("Evviva!!!");
+    // }
+    switch(number) {
+        case 11:
+            if (sortedImage == "images/fig_01a.png" || sortedImage == "images/fig_01b.png"){
+                console.log("Evviva!!!");
+            }
+            else {
+                console.log("Sbagliato");
+            }
+            break;       
+        case 12:
+            if (sortedImage == "images/fig_02a.png" || sortedImage == "images/fig_02b.png"){
+                console.log("Evviva!!!");
+            }
+            else {
+                console.log("Sbagliato");
+            }    
+            break;   
+        case 13:
+            if (sortedImage == "images/fig_03a.png" || sortedImage == "images/fig_03b.png"){
+                console.log("Evviva!!!");
+            }
+            else {
+                console.log("Sbagliato");
+            }    
+            break;   
+        case 14:
+            if (sortedImage == "images/fig_04a.png" || sortedImage == "images/fig_04b.png"){
+                console.log("Evviva!!!");
+            }
+            else {
+                console.log("Sbagliato");
+            }    
+            break;   
+        case 15:
+            if (sortedImage == "images/fig_05a.png" || sortedImage == "images/fig_05b.png"){
+                console.log("Evviva!!!");
+            }
+            else {
+                console.log("Sbagliato");
+            }    
+            break;   
+        case 16:
+            if (sortedImage == "images/fig_06a.png" || sortedImage == "images/fig_06b.png"){
+                console.log("Evviva!!!");
+            }
+            else {
+                console.log("Sbagliato");
+            }    
+            break;   
+        default:
+            console.log("Something went wrong");
+    }
+}
