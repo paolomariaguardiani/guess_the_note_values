@@ -18,9 +18,9 @@ let clonedImages = images.slice(0);
 
 function shuffleArray(array) {
     let len = array.length,
-    currentIndex;
+        currentIndex;
     for (currentIndex = len - 1; currentIndex > 0; currentIndex--) {
-        let randIndex = Math.floor(Math.random() * (currentIndex + 1) );
+        let randIndex = Math.floor(Math.random() * (currentIndex + 1));
         var temp = array[currentIndex];
         array[currentIndex] = array[randIndex];
         array[randIndex] = temp;
@@ -28,85 +28,150 @@ function shuffleArray(array) {
 }
 
 let sortedImage = ""
+let points = 0;
+let checked = false;
+guess = 0;
+let display_points = document.getElementById("points");
+counter = 0;
+voto = 0;
 
 function changeImage() {
     // Mescolo le immagini
     shuffleArray(clonedImages);
+    checked = false;
+    guess = 0;
+    counter++;
 
     image = document.getElementById("image_question");
     //let index = Math.trunc(Math.random() * images.length);
-    
+
     if (clonedImages.length > 0) {
         // selezione l'ultima immagine dall'array clonato e rimescolato
         sortedImage = clonedImages.pop();
         image.src = sortedImage;
-        console.log(sortedImage);
     }
     else {
         // Se ho eliminato tutte le immagini dall'array clonato lo ricreo!
         clonedImages = images.slice(0);
+        // selezione l'ultima immagine dall'array clonato e rimescolato
+        sortedImage = clonedImages.pop();
+        image.src = sortedImage;
     }
-    console.log(clonedImages)
+    console.log(counter);
 }
 
 
 function checkNames(number) {
-    // console.log("from check()");
-    // console.log(number);
-    // console.log(sortedImage);
-    // if ((sortedImage == "images\fig_01a.png" || sortedImage == "images\fig_01b.png") && number == 11) {
-    //     console.log("Evviva!!!");
-    // }
-    switch(number) {
-        case 11:
-            if (sortedImage == "images/fig_01a.png" || sortedImage == "images/fig_01b.png"){
-                console.log("Evviva!!!");
+    switch (number) {
+        case 1:
+            if (sortedImage == "images/fig_01a.png" || sortedImage == "images/fig_01b.png") {
+                guess = 1;
+            }
+            else {
+
+
+            }
+            break;
+        case 2:
+            if (sortedImage == "images/fig_02a.png" || sortedImage == "images/fig_02b.png") {
+                guess = 1;
             }
             else {
                 console.log("Sbagliato");
             }
-            break;       
-        case 12:
-            if (sortedImage == "images/fig_02a.png" || sortedImage == "images/fig_02b.png"){
-                console.log("Evviva!!!");
+            break;
+        case 3:
+            if (sortedImage == "images/fig_03a.png" || sortedImage == "images/fig_03b.png") {
+                guess = 1;
             }
             else {
                 console.log("Sbagliato");
-            }    
-            break;   
-        case 13:
-            if (sortedImage == "images/fig_03a.png" || sortedImage == "images/fig_03b.png"){
-                console.log("Evviva!!!");
+            }
+            break;
+        case 4:
+            if (sortedImage == "images/fig_04a.png" || sortedImage == "images/fig_04b.png") {
+                guess = 1;
             }
             else {
-                console.log("Sbagliato");
-            }    
-            break;   
-        case 14:
-            if (sortedImage == "images/fig_04a.png" || sortedImage == "images/fig_04b.png"){
-                console.log("Evviva!!!");
+                ;
+            }
+            break;
+        case 5:
+            if (sortedImage == "images/fig_05a.png" || sortedImage == "images/fig_05b.png") {
+                guess = 1;
             }
             else {
-                console.log("Sbagliato");
-            }    
-            break;   
-        case 15:
-            if (sortedImage == "images/fig_05a.png" || sortedImage == "images/fig_05b.png"){
-                console.log("Evviva!!!");
+                ;
+            }
+            break;
+        case 6:
+            if (sortedImage == "images/fig_06a.png" || sortedImage == "images/fig_06b.png") {
+                guess = 1;
             }
             else {
-                console.log("Sbagliato");
-            }    
-            break;   
-        case 16:
-            if (sortedImage == "images/fig_06a.png" || sortedImage == "images/fig_06b.png"){
-                console.log("Evviva!!!");
+                ;
             }
-            else {
-                console.log("Sbagliato");
-            }    
-            break;   
+            break;
         default:
             console.log("Something went wrong");
     }
+    if (guess == 1 && checked == false) {
+        points++;
+        display_points.innerHTML = "POINTS: " + points;
+    }
+    console.log(points);
+    voto = points * 10 / counter;
+    console.log("Il voto di questo test è: " + voto);
+    checked = true;
 }
+
+// thanks to: https://deepdeveloper.in/show-hide-multiple-divs-in-javascript/
+function test01() {
+    // nascondo il test02 e il test03
+    var divs2 = document.getElementsByClassName("test02");
+    var divs3 = document.getElementsByClassName("test03");
+    for (var i = 0; i < divs2.length; i++) {
+        divs2[i].style.display = "none";
+        divs3[i].style.display = "none";
+    }
+
+    // mostro il test01
+    var divs1 = document.getElementsByClassName("test01");
+    for (var i = 0; i < divs1.length; i++) {
+        divs1[i].style.display = "block";
+    }
+}
+
+function test02() {
+    // nascondo il test02 e il test03
+    var divs1 = document.getElementsByClassName("test01");
+    var divs3 = document.getElementsByClassName("test03");
+    for (var i = 0; i < divs1.length; i++) {
+        divs1[i].style.display = "none";
+        divs3[i].style.display = "none";
+    }
+
+    // mostro il test01
+    var divs2 = document.getElementsByClassName("test02");
+    for (var i = 0; i < divs2.length; i++) {
+        divs2[i].style.display = "block";
+    }
+}
+
+function test03() {
+    // nascondo il test01 e il test02
+    var divs1 = document.getElementsByClassName("test01");
+    var divs2 = document.getElementsByClassName("test02");
+    for (var i = 0; i < divs1.length; i++) {
+        divs1[i].style.display = "none";
+        divs2[i].style.display = "none";
+    }
+
+    // mostro il test01
+    var divs3 = document.getElementsByClassName("test03");
+    for (var i = 0; i < divs3.length; i++) {
+        divs3[i].style.display = "block";
+    }
+}
+
+
