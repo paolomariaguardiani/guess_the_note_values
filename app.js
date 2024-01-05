@@ -13,6 +13,16 @@ const images = [
     "images/fig_06b.png"
 ]
 
+let sortedImage = ""
+let points = 0;
+let checked = false;
+guess = 0;
+counter = 0;
+voto = 0;
+let display_tests = document.getElementById("tests");
+let display_points = document.getElementById("points");
+let display_voto = document.getElementById("voto");
+
 // Thanks to https://www.educative.io/answers/how-to-shuffle-an-array-in-javascript
 let clonedImages = images.slice(0);
 
@@ -26,14 +36,6 @@ function shuffleArray(array) {
         array[randIndex] = temp;
     }
 }
-
-let sortedImage = ""
-let points = 0;
-let checked = false;
-guess = 0;
-let display_points = document.getElementById("points");
-counter = 0;
-voto = 0;
 
 function changeImage() {
     // Mescolo le immagini
@@ -127,10 +129,13 @@ function checkNames(number) {
     }
     if (guess == 1 && checked == false) {
         points++;
+        display_tests.innerHTML = "TEST: " + counter;
         display_points.innerHTML = "POINTS: " + points;
+        voto = points * 10 / counter;
+        display_voto.innerHTML = "VOTO: " + voto.toFixed(2);
+
     }
     console.log(points);
-    voto = points * 10 / counter;
     console.log("Il voto di questo test è: " + voto);
     checked = true;
 }
@@ -185,3 +190,17 @@ function test03() {
 }
 
 
+// UTILIZZO DELLA FRECCIA DESTRA E DELLE LETTERE U I O J K L AL POSTO DEI BOTTONI
+window.addEventListener('keydown', function(event) {
+    // bottone next: freccia a destra oppure lettera f
+    if (event.which === 70 || event.which === 39) { changeImage(); }
+    // seguono i comandi per "cliccare" le varie risposte
+    if (event.which === 85) { checkNames(1); }
+    if (event.which === 73) { checkNames(2); }
+    if (event.which === 79) { checkNames(3); }
+
+    if (event.which === 74) { checkNames(4); }
+    if (event.which === 75) { checkNames(5); }
+    if (event.which === 76) { checkNames(6); }
+
+}, false);
