@@ -1,3 +1,20 @@
+// carico i suoni
+let sound_click = new Howl({
+    src: ['audio/click_1.wav']
+});
+let sound_bleep = new Howl({
+    src: ['audio/bleep_soft.wav']
+});
+let sound_error = new Howl({
+    src: ['audio/sound_error.wav']
+});
+let sound_ok = new Howl({
+    src: ['audio/blip-131856.mp3']
+})
+let sound_reload = new Howl({
+    src: ['audio/correct-2-46134.mp3']
+})
+
 const images = [
     "images/fig_01a.png",
     "images/fig_01b.png",
@@ -39,6 +56,7 @@ function shuffleArray(array) {
 
 function changeImage() {
     // Mescolo le immagini
+    sound_click.play();
     shuffleArray(clonedImages);
     checked = false;
     guess = 0;
@@ -62,14 +80,17 @@ function changeImage() {
     console.log(counter);
     if (counter == 13) {
         console.log("ho eseguito 12 prove");
+        sound_bleep.play();
         test02();
     }
     if (counter == 25) {
         console.log("ho eseguito 24 prove");
+        sound_bleep.play();
         test03();
     }
     if (counter == 37) {
         console.log("ho eseguito 36 prove");
+        sound_bleep.play();
         test01(); 
     }
 }
@@ -128,20 +149,23 @@ function checkNames(number) {
             console.log("Something went wrong");
     }
     if (guess == 1 && checked == false) {
+        sound_ok.play();
         points++;
         display_tests.innerHTML = "TEST: " + counter;
         display_points.innerHTML = "POINTS: " + points;
         voto = points * 10 / counter;
         display_voto.innerHTML = "VOTO: " + voto.toFixed(2);
-
     }
-    console.log(points);
-    console.log("Il voto di questo test è: " + voto);
+    else {
+        sound_error.play();
+    }
+    
     checked = true;
 }
 
 // thanks to: https://deepdeveloper.in/show-hide-multiple-divs-in-javascript/
 function test01() {
+    sound_bleep.play();
     // nascondo il test02 e il test03
     var divs2 = document.getElementsByClassName("test02");
     var divs3 = document.getElementsByClassName("test03");
@@ -158,6 +182,7 @@ function test01() {
 }
 
 function test02() {
+    sound_bleep.play();
     // nascondo il test02 e il test03
     var divs1 = document.getElementsByClassName("test01");
     var divs3 = document.getElementsByClassName("test03");
@@ -174,6 +199,7 @@ function test02() {
 }
 
 function test03() {
+    sound_bleep.play();
     // nascondo il test01 e il test02
     var divs1 = document.getElementsByClassName("test01");
     var divs2 = document.getElementsByClassName("test02");
@@ -189,6 +215,12 @@ function test03() {
     }
 }
 
+function reloadPage() {
+    sound_reload.play();
+    setTimeout(function() {
+        window.location.reload();
+    }, 1000);
+}
 
 // UTILIZZO DELLA FRECCIA DESTRA E DELLE LETTERE U I O J K L AL POSTO DEI BOTTONI
 window.addEventListener('keydown', function(event) {
