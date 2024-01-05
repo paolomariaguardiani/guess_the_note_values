@@ -58,6 +58,18 @@ function changeImage() {
         image.src = sortedImage;
     }
     console.log(counter);
+    if (counter == 13) {
+        console.log("ho eseguito 12 prove");
+        test02();
+    }
+    if (counter == 25) {
+        console.log("ho eseguito 24 prove");
+        test03();
+    }
+    if (counter == 37) {
+        console.log("ho eseguito 36 prove");
+        test01(); 
+    }
 }
 
 
@@ -68,8 +80,6 @@ function checkNames(number) {
                 guess = 1;
             }
             else {
-
-
             }
             break;
         case 2:

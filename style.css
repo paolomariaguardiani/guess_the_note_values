@@ -55,34 +55,37 @@ div.question {
 
 
 .grid-container {
-    width: 40%;
+    width: 50%;
+    height: 250px;
     margin: 0 auto;
     display: grid;
     grid-template-areas:
-        'item11 item12'
-        'item13 item14'
-        'item15 item16'
+        'item11 item12 item13'
+        'item14 item15 item16'
 
-        'item21 item22'
-        'item23 item24'
-        'item25 item26'
+        'item21 item22 item23'
+        'item24 item25 item26'
 
-        'item31 item32'
-        'item33 item34'
-        'item35 item36'
+        'item31 item32 item33'
+        'item34 item35 item36'
     ;
     gap: 20px;
     background-color: #2196F3;
     padding: 10px;
-    align-items: end;
+    justify-items: center;
+
 }
 
 .grid-container>div {
+    width: 50%;
     border-radius: 20%;
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
-    padding: 20px;
-    font-size: 30px;
+
+}
+
+.grid-container>div>img {
+    width: 100px;
 }
 
 .grid-container>div :hover {
@@ -102,36 +105,51 @@ div.question {
     flex-wrap: wrap;
 }
 
-.test02,
-.test03 {
-    display: none;
-}
-
 .buttons {
-    width: 40%;
-    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
     padding: 20px;
-
-}
-
-.btn {
-    background-color: blue;
-    padding: 20px;
-    font-size: 30px;
-    color: white;
-    width: 200px;
-    margin: 0 20px;
+    text-align: center;
 }
 
 #next {
     background-color: darkorange;
+}    
+
+.btn {
+    background-color: blue;
+    font-size: 15px;
+    color: white;
+    width: 100px;
+    margin: 0 20px;
 }
 
-.points {
+#new {
+    background-color: red;
+    color: white;
+}
+
+
+.informations {
+    display:flex;
+    justify-content: center;
     width: 40%;
     padding: 20px;
     margin: 0 auto;
     text-align: center;
     background-color: orange;
-    font-size: 60px;
+    font-size: 30px;
+}
+
+.informations>div {
+    background-color: yellow;
+    margin: 0 20px;
+}
+
+/* per non far vedere test02 e test03 all'inizio del gioco */
+.test02,
+.test03 {
+    display: none;
 }
