@@ -40,6 +40,23 @@ let display_tests = document.getElementById("tests");
 let display_points = document.getElementById("points");
 let display_voto = document.getElementById("voto");
 
+function italianEnglish1() {
+    sound_bleep.play();
+    setTimeout(function() {
+        window.location.assign("index.html");
+        console.log("ciao da italianEnglish1()!")
+    }, 1000);
+}
+
+function italianEnglish2() {
+    sound_bleep.play();
+    setTimeout(function() {
+        window.location.assign("english.html");
+        console.log("ciao da italianEnglish2()!")
+    }, 1000);
+}
+
+
 // Thanks to https://www.educative.io/answers/how-to-shuffle-an-array-in-javascript
 let clonedImages = images.slice(0);
 
@@ -154,7 +171,7 @@ function checkNames(number) {
         display_tests.innerHTML = "TEST: " + counter;
         display_points.innerHTML = "POINTS: " + points;
         voto = points * 10 / counter;
-        display_voto.innerHTML = "VOTO: " + voto.toFixed(2);
+        display_voto.innerHTML = "SCORE: " + voto.toFixed(2);
     }
     else {
         sound_error.play();
