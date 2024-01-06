@@ -168,16 +168,25 @@ function checkNames(number) {
     if (guess == 1 && checked == false) {
         sound_ok.play();
         points++;
+        updateScore();
+        // display_tests.innerHTML = "TEST: " + counter;
+        // display_points.innerHTML = "POINTS: " + points;
+        // voto = points * 10 / counter;
+        // display_voto.innerHTML = "SCORE: " + voto.toFixed(2);
+    }
+    else {
+        sound_error.play();
+        updateScore();
+    }
+    
+    checked = true;
+}
+
+function updateScore() {
         display_tests.innerHTML = "TEST: " + counter;
         display_points.innerHTML = "POINTS: " + points;
         voto = points * 10 / counter;
         display_voto.innerHTML = "SCORE: " + voto.toFixed(2);
-    }
-    else {
-        sound_error.play();
-    }
-    
-    checked = true;
 }
 
 // thanks to: https://deepdeveloper.in/show-hide-multiple-divs-in-javascript/
