@@ -12,7 +12,7 @@ let sound_ok = new Howl({
     src: ['audio/blip-131856.mp3']
 })
 let sound_reload = new Howl({
-    src: ['audio/correct-2-46134.mp3']
+    src: ['audio/new_game.wav']
 })
 
 const images = [
@@ -165,6 +165,8 @@ function checkNames(number) {
 
 // thanks to: https://deepdeveloper.in/show-hide-multiple-divs-in-javascript/
 function test01() {
+    // seleziono una nuova immagine
+    changeImage();
     sound_bleep.play();
     // nascondo il test02 e il test03
     var divs2 = document.getElementsByClassName("test02");
@@ -182,6 +184,8 @@ function test01() {
 }
 
 function test02() {
+    // seleziono una nuova immagine
+    changeImage();
     sound_bleep.play();
     // nascondo il test02 e il test03
     var divs1 = document.getElementsByClassName("test01");
@@ -199,6 +203,8 @@ function test02() {
 }
 
 function test03() {
+    // seleziono una nuova immagine
+    changeImage();
     sound_bleep.play();
     // nascondo il test01 e il test02
     var divs1 = document.getElementsByClassName("test01");
@@ -219,13 +225,14 @@ function reloadPage() {
     sound_reload.play();
     setTimeout(function() {
         window.location.reload();
-    }, 1000);
+    }, 3000);
 }
 
 // UTILIZZO DELLA FRECCIA DESTRA E DELLE LETTERE U I O J K L AL POSTO DEI BOTTONI
 window.addEventListener('keydown', function(event) {
     // bottone next: freccia a destra oppure lettera f
     if (event.which === 70 || event.which === 39) { changeImage(); }
+
     // seguono i comandi per "cliccare" le varie risposte
     if (event.which === 85) { checkNames(1); }
     if (event.which === 73) { checkNames(2); }
@@ -234,5 +241,8 @@ window.addEventListener('keydown', function(event) {
     if (event.which === 74) { checkNames(4); }
     if (event.which === 75) { checkNames(5); }
     if (event.which === 76) { checkNames(6); }
+
+    // segue il comando F5 per fare il reload della pagina
+    if (event.which === 53) { reloadPage(); }
 
 }, false);

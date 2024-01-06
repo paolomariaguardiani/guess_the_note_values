@@ -12,27 +12,6 @@ h1 {
     font-size: 3em;
 }
 
-.flex-container {
-    width: 60%;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: dodgerblue;
-    justify-items: start;
-}
-
-.flex-container>div {
-    border-radius: 20%;
-    background-color: #f1f1f1;
-    width: 200px;
-    height: 200px;
-    margin: 20px;
-    text-align: center;
-    line-height: 75px;
-    font-size: 30px;
-
-}
-
 div.question {
     border-color: black;
     border-style: solid;
@@ -70,22 +49,24 @@ div.question {
         'item34 item35 item36'
     ;
     gap: 20px;
-    background-color: #2196F3;
+    /* background-color: #2196F3; */
     padding: 10px;
     justify-items: center;
-
 }
 
-.grid-container>div {
+/* .grid-container>div {
     width: 50%;
     border-radius: 20%;
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
 
-}
+} */
 
-.grid-container>div>img {
+.images {
     width: 100px;
+    border:3px solid rgb(0, 136, 255);
+    border-radius: 20%;
+    background-color: aqua;
 }
 
 .grid-container>div :hover {
@@ -116,7 +97,7 @@ div.question {
 
 #next {
     background-color: darkorange;
-}    
+}
 
 .btn {
     background-color: blue;
@@ -133,9 +114,9 @@ div.question {
 
 
 .informations {
-    display:flex;
+    display: flex;
     justify-content: center;
-    width: 40%;
+    width: 50%;
     padding: 20px;
     margin: 0 auto;
     text-align: center;
