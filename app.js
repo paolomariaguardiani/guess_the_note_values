@@ -94,21 +94,22 @@ function changeImage() {
         image.src = sortedImage;
     }
     console.log(counter);
-    if (counter == 13) {
-        console.log("ho eseguito 12 prove");
-        sound_bleep.play();
-        test02();
-    }
-    if (counter == 25) {
-        console.log("ho eseguito 24 prove");
-        sound_bleep.play();
-        test03();
-    }
-    if (counter == 37) {
-        console.log("ho eseguito 36 prove");
-        sound_bleep.play();
-        test01(); 
-    }
+    // the code below could generated bugs!!
+    // if (counter == 13) {
+    //     console.log("ho eseguito 12 prove");
+    //     sound_bleep.play();
+    //     test02();
+    // }
+    // if (counter == 25) {
+    //     console.log("ho eseguito 24 prove");
+    //     sound_bleep.play();
+    //     test03();
+    // }
+    // if (counter == 37) {
+    //     console.log("ho eseguito 36 prove");
+    //     sound_bleep.play();
+    //     test01(); 
+    // }
 }
 
 
