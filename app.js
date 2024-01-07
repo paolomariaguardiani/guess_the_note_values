@@ -32,7 +32,7 @@ const images = [
 
 let sortedImage = ""
 let points = 0;
-let checked = false;
+let checked = true;
 guess = 0;
 counter = 0;
 voto = 0;
@@ -77,7 +77,6 @@ function changeImage() {
     shuffleArray(clonedImages);
     checked = false;
     guess = 0;
-    counter++;
 
     image = document.getElementById("image_question");
     //let index = Math.trunc(Math.random() * images.length);
@@ -120,6 +119,7 @@ function checkNames(number) {
                 guess = 1;
             }
             else {
+                guess = 0;
             }
             break;
         case 2:
@@ -127,7 +127,7 @@ function checkNames(number) {
                 guess = 1;
             }
             else {
-                console.log("Sbagliato");
+                guess = 0;
             }
             break;
         case 3:
@@ -135,7 +135,7 @@ function checkNames(number) {
                 guess = 1;
             }
             else {
-                console.log("Sbagliato");
+                guess = 0;
             }
             break;
         case 4:
@@ -143,7 +143,7 @@ function checkNames(number) {
                 guess = 1;
             }
             else {
-                ;
+                guess = 0;
             }
             break;
         case 5:
@@ -151,7 +151,7 @@ function checkNames(number) {
                 guess = 1;
             }
             else {
-                ;
+                guess = 0;
             }
             break;
         case 6:
@@ -159,7 +159,7 @@ function checkNames(number) {
                 guess = 1;
             }
             else {
-                ;
+                guess = 0;
             }
             break;
         default:
@@ -167,19 +167,17 @@ function checkNames(number) {
     }
     if (guess == 1 && checked == false) {
         sound_ok.play();
+        counter++;
         points++;
         updateScore();
-        // display_tests.innerHTML = "TEST: " + counter;
-        // display_points.innerHTML = "POINTS: " + points;
-        // voto = points * 10 / counter;
-        // display_voto.innerHTML = "SCORE: " + voto.toFixed(2);
+        checked = true;
     }
-    else {
+    if (guess == 0 && checked == false) {
         sound_error.play();
+        counter++;
         updateScore();
+        checked = true;
     }
-    
-    checked = true;
 }
 
 function updateScore() {
