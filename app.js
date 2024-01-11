@@ -12,7 +12,7 @@ let sound_ok = new Howl({
     src: ['audio/blip-131856.mp3']
 })
 let sound_reload = new Howl({
-    src: ['audio/new_game.wav']
+    src: ['audio/new_game_2.wav']
 })
 
 const images = [
